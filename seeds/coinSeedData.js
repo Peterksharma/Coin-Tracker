@@ -52,6 +52,64 @@ const states = [
     'Hawaii'
 ]
 
+const usaPlaces = [
+    'Hot Springs',
+    'Yellowstone',
+    'Yosemite',
+    'Grand Canyon',
+    'Mount Hood',
+    'Gettysburg',
+    'Glacier',
+    'Olympic',
+    'Vicksburg',
+    'Chickasaw',
+    'El Yunque',
+    'Chaco Culture',
+    'Acadia',
+    'Hawaii Volcanoes',
+    'Denali',
+    'White Mountain',
+    "Perry's Memorial",
+    'Great Basin',
+    'Fort McHenry',
+    'Mount Rushmore',
+    'Great Smoky Mtns',
+    'Shenandoah',
+    'Arches',
+    'Great Sand Dunes',
+    'Everglades',
+    'Homestead',
+    'Kisatchie',
+    'Blue Ridge Parkway',
+    'Bombay Hook',
+    'Saratoga',
+    'Shawnee',
+    'Cumberland Gap',
+    'Theodore Roosevelt',
+    'Harpers Ferry',
+    'Fort Moultrie',
+    'Effigy Mounds',
+    'Ellis Island',
+    'Ozark',
+    'Frederick Douglass',
+    'George Rogers Clark',
+    'Pictured Rocks',
+    'Apostle Islands',
+    'Voyageurs',
+    'Block Island',
+    'Cumberland Island',
+    'Lowell',
+    'American Memorial',
+    'San Antonio Missions',
+    'War in the Pacific',
+    'Frank Church River of No Return',
+    'American Samoa',
+    'Tallgrass Prairie',
+    'Weir Farm',
+    'Salt River Bay',
+    'Marsh-Billings-Rockefeller'
+]
+
 //Pennies
 let wheatPennies = [];
 
@@ -176,9 +234,27 @@ for (let i = 0; i < states.length; i++) {
         stateCount = 0;
     }
 }
-
-//strified to print the full length to the console
-// console.log(JSON.stringify(stateQuarter, null, 2));
 console.log(stateQuarter)
 
 
+let washBeautQuarter = [];
+let year2 = 2010;
+// let stateCount = 0;
+
+
+for (let i = 0; i < usaPlaces.length; i++) {
+    for (let mark of mintMarks) {
+        washBeautQuarter.push({
+            name: usaPlaces[i],
+            denomination: 0.25,
+            year: year2,
+            mintMark: mark
+        });
+    }
+    stateCount++;
+    if (stateCount === 5) {
+        year2++;
+        stateCount = 0;
+    }
+}
+console.log(washBeautQuarter)
