@@ -1,6 +1,8 @@
 const fs = require('fs');
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js')
+const fileContent = fs.readFileSync('data.json', 'utf-8');
+const data = JSON.parse(fileContent);
 
 class Users extends Model { }
 
