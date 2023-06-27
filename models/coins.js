@@ -5,13 +5,15 @@ class Coin extends Model {}
 
 Coin.init(
     {
+        id:{
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
+        },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
-        },
-
-        coin_id: {
-            type: DataTypes.INTEGER,
             allowNull: false,
         },
 
@@ -30,13 +32,7 @@ Coin.init(
             allowNull: true,
         },
 
-        user_id:{
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
+
     },
     {
         sequelize,

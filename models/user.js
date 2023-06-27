@@ -1,34 +1,17 @@
-// const sequelize = require('sequelize');
-
-// DROP DATABASE IF EXISTS coins
-
-// const sequelize = new Sequelize //(databasename, username, password, {
-//   //host: database host,
-//   //dialect: database driver,
-// //});
-
-// const {DataTypes} = require ('sequelize');
-
-// const User = sequelize.define(User, {
-//   id: {
-//     type: DataTypes.INTEGER,
-//     primaryKey: true,
-//     autoIncrement: true,
-//   },
-
-//   userName: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   },
-// })
 const fs = require('fs');
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js')
 
-class users extends Model { }
+class Users extends Model { }
 
-users.init(
+Users.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
 
     username: {
       type: DataTypes.STRING,
@@ -42,11 +25,6 @@ users.init(
       validate: {
         len: [8],
       },
-    },
-
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
     },
 
   },
@@ -72,9 +50,6 @@ module.exports = User,
   //Primary key
 
 
-  bcrypt.hash(password, 10, function (err, hash) {
-    // Store hashed password in your User model
-  });
 //needs to be dialed in
 (async () => {
   try {
@@ -95,3 +70,11 @@ module.exports = User,
   }
 })();
 
+
+
+
+
+//Bcrytpt password hasing
+bcrypt.hash(password, 10, function (err, hash) {
+  // Store hashed password in your User model
+});
