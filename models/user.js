@@ -27,7 +27,47 @@ const sequelize = require('../config/connection.js')
 
 class users extends Model {}
 
-users.init 
+users.init (
+  {
+    
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
+      },
+    },
+
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+
+  },
+
+    {
+      hooks: {
+        async beforeCreate(newUserData) {
+          newUserData.password = await bcrypt.hash(newUserData.password, 10);
+
+            return newUserData;
+        },
+      },
+      sequelize,
+      timestamps:false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'user',
+    }
+);
+
+module.exports = User,
 
 //Primary key
 
