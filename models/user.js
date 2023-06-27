@@ -32,6 +32,8 @@ users.init
 //Primary key
 
 
+//Encrypting the user password
+
 bcrypt.hash(password, 10, function(err, hash) {
     // Store hashed password in your User model
   });

@@ -239,8 +239,6 @@ console.log(stateQuarter)
 
 let washBeautQuarter = [];
 let year2 = 2010;
-// let stateCount = 0;
-
 
 for (let i = 0; i < usaPlaces.length; i++) {
     for (let mark of mintMarks) {
@@ -258,3 +256,4 @@ for (let i = 0; i < usaPlaces.length; i++) {
     }
 }
 console.log(washBeautQuarter)
+
