@@ -5,9 +5,7 @@ const session = require('express-session');
 const { engine } = require('express-handlebars');
 //Need to update the conenction but this will import
 const sequelize = require('./config/connection');
-const routes = require('./routes');
 const initializePassport = require('./config/passport')
-const passport = require('passport')
 const app = express();
 const PORT = process.env.PORT || 3001;
  
