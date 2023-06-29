@@ -15,6 +15,7 @@ initializePassport(passport)
 app.engine('handlebars', engine());
 //Sets our app to use the handlebars engine
 app.set('view engine', 'handlebars');
+//points to the views directory to render the pages
 app.set('views', './views');
 
 //Middleware
@@ -25,11 +26,22 @@ app.use(express.urlencoded({ extended: true }));
 // need to replace secret with a secret key
 app.use(session({ secret: process.env.TOP_SECRET_KEY, resave: true, saveUninitialized: true }));
 
+// Routes that will need to be exported to routes folder later on
+//renders the homepage (needs to be in the /routes/ folder)
+app.get('/', (req, res) => {
+    res.render('index.handlebars', {name: 'this is where the name goes'})
+    
+})
 
+//renders the login page
+app.get('/login', (req, res) => {
+    res.render('login.handlebars')
+})
 
+app.get('/register', (req, res) => {
+    res.render('register.handlebars')
+})
 
-
-app.use(routes);
 
 
 // sync sequelize models to the database, then turn on the server
