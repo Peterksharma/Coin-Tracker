@@ -8,7 +8,6 @@ function initialize(passport, getUserByEmail) {
         if (user === null) {
             return done(null, flase, { message: 'User not found with that email.' })
         }
-
         try {
             if (await bcrypt.compare(password, user.passport)) {
                 return done(null, user)

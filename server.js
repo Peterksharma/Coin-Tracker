@@ -1,5 +1,5 @@
 const express = require('express');
-const routes = require('./routes');
+const routes = require('./controllers');
 const passport = require('passport');
 const session = require('express-session');
 const { engine } = require('express-handlebars');
@@ -8,7 +8,8 @@ const sequelize = require('./config/connection');
 const initializePassport = require('./config/passport')
 const app = express();
 const PORT = process.env.PORT || 3001;
- 
+
+
 initializePassport(passport)
 //Loads the handlebars module
 //Sets handlebars configurations (we will go through them later on)
@@ -26,23 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 // need to replace secret with a secret key
 app.use(session({ secret: process.env.TOP_SECRET_KEY, resave: true, saveUninitialized: true }));
 
-// Routes that will need to be exported to routes folder later on
-//renders the homepage (needs to be in the /routes/ folder)
-app.get('/', (req, res) => {
-    res.render('index.handlebars', {name: 'this is where the name goes'})
-    
-})
 
-//renders the login page
-app.get('/login', (req, res) => {
-    res.render('login.handlebars')
-})
-
-app.get('/register', (req, res) => {
-    res.render('register.handlebars')
-})
-
-
+app.use(routes)
 
 // sync sequelize models to the database, then turn on the server
 // force false = true will drop the tables and then recreate them. Keep False
