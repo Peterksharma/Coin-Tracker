@@ -17,6 +17,8 @@ app.set('views', './views');
 //Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// serve up static assets
+app.use(express.static('public'));
 
 //Express Session Middleware
 //need to replace secret with a secret key
