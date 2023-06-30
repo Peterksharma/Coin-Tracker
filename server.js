@@ -32,8 +32,23 @@ app.use(session({ secret: process.env.TOP_SECRET_KEY, resave: true, saveUninitia
 
 app.use(routes)
 
+
+//post route for handling the user registration
+app.post('/register', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        await User.create({ username, password });
+        res.status(200).json({ message: 'User has been created.'})
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'User could not be registered.'})
+    }
+})
+
+
+
 // sync sequelize models to the database, then turn on the server
 // force false = true will drop the tables and then recreate them. Keep False
-// sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`App is listen of the Port ${PORT}`));
-// })
+})
