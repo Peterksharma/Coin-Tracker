@@ -7,6 +7,7 @@ const { engine } = require('express-handlebars');
 const sequelize = require('./config/connection');
 const initializePassport = require('./config/passport')
 const app = express();
+const User = require('./models/user');
 const PORT = process.env.PORT || 3001;
 
 
@@ -31,19 +32,20 @@ app.use(session({ secret: process.env.TOP_SECRET_KEY, resave: true, saveUninitia
 
 
 app.use(routes)
+app.use('/user', userRoutes);
 
 
-//post route for handling the user registration
-app.post('/register', async (req, res) => {
-    try {
-        const { username, password } = req.body;
-        await User.create({ username, password });
-        res.status(200).json({ message: 'User has been created.'})
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'User could not be registered.'})
-    }
-})
+// //post route for handling the user registration
+// app.post('/register', async (req, res) => {
+//     try {
+//         const { username, password } = req.body;
+//         await User.create({ username, password });
+//         res.status(200).json({ message: 'User has been created.'})
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).json({ error: 'User could not be registered.'})
+//     }
+// })
 
 
 
