@@ -6,12 +6,14 @@ const { engine } = require('express-handlebars');
 //Need to update the conenction but this will import
 const sequelize = require('./config/connection');
 const initializePassport = require('./config/passport')
+const userRoutes = require('./controllers/api/userRoutes')
 const app = express();
 const User = require('./models/user');
 const PORT = process.env.PORT || 3001;
 
 
 initializePassport(passport)
+
 //Loads the handlebars module
 //Sets handlebars configurations (we will go through them later on)
 app.engine('handlebars', engine());
@@ -19,6 +21,7 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 //points to the views directory to render the pages
 app.set('views', './views');
+
 
 //Middleware
 app.use(express.json());
@@ -29,23 +32,12 @@ app.use(express.static('public'));
 //Express Session Middleware
 // need to replace secret with a secret key
 app.use(session({ secret: process.env.TOP_SECRET_KEY, resave: true, saveUninitialized: true }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
 app.use(routes)
-app.use('/user', userRoutes);
-
-
-// //post route for handling the user registration
-// app.post('/register', async (req, res) => {
-//     try {
-//         const { username, password } = req.body;
-//         await User.create({ username, password });
-//         res.status(200).json({ message: 'User has been created.'})
-//     } catch (err) {
-//         console.error(err);
-//         res.status(500).json({ error: 'User could not be registered.'})
-//     }
-// })
+app.use('/api/user', userRoutes);
 
 
 

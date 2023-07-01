@@ -1,11 +1,11 @@
 //API handles all Json Data
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
+const User = require('../../models/user');
 
 
 
-app.post('/register', async (req, res) => {
+router.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;
         await User.create({ username, password });
