@@ -14,6 +14,14 @@ router.get('/login', (req, res) => {
 router.get('/register', (req, res) => {
     res.render('register.handlebars')
 })
+//renders the dashboard for where the data will be displayed. This pulls up the handlebars page from Jennie
+router.get('/dashboard', (req, res) => {
+    if (req.isAuthenticated()) {
+        res.render('dashboard', { user: req.user }); 
+    } else {
+        res.redirect('/login');
+    }
+});
 
 module.exports = router;
 
