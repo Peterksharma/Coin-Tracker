@@ -6,11 +6,10 @@ class User extends Model { }
 
 User.init(
   {
-    id: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      unique: true,
     },
 
     username: {
@@ -45,6 +44,10 @@ User.init(
   }
 );
 
+User.hasMany(models.Coin, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 module.exports = User;
 
   //Primary key

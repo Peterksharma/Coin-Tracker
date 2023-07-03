@@ -8,11 +8,19 @@ Coin.init(
     {
         id:{
             type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true,
+        },
+
+        user_id: {
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id',
             },
         },
+
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -41,7 +49,14 @@ Coin.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'coin'
-    }
+    },
+    
+
 );
+
+Coin.belongsTo(models.User, {
+    foreignKey: 'user_id'
+});
+
 
 module.exports = Coin;
