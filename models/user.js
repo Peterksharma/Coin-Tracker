@@ -44,7 +44,7 @@ User.init(
   }
 );
 
-User.hasMany(models.Coin, {
+User.hasMany(Model.Coin, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
