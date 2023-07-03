@@ -54,7 +54,7 @@ Coin.init(
 
 );
 
-Coin.belongsTo(models.User, {
+Coin.belongsTo(Model.User, {
     foreignKey: 'user_id'
 });
 
