@@ -215,7 +215,7 @@ for (let year = 1932; year <= 1998; year++) {
 }
 console.log(washingtonQuarter);
 
-let stateQuarter = [];
+//name of these quarters are "50 States"
 let year = 1999;
 let stateCount = 0;
 
@@ -237,6 +237,7 @@ for (let i = 0; i < states.length; i++) {
 console.log(stateQuarter)
 
 
+//name of these quarters are "America The Beautiful"
 let washBeautQuarter = [];
 let year2 = 2010;
 // let stateCount = 0;

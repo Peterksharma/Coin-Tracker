@@ -22,19 +22,19 @@ router.get('/', (req, res) => {
         })
 })
 
-//get a specific coin
-router.get('/:id', (req, res) => {
-    coinCollection.findOne({
-        include: {
-            model: Coin,
-            atrributes: ['name', 'denomination', 'year', 'mintMark']
-        }
-    })
-        .catch(err => {
-            console.log(err);
-            res.json(500).json(err)
-        })
-})
+// //get a specific coin
+// router.get('/:id', (req, res) => {
+//     coinCollection.findOne({
+//         include: {
+//             model: Coin,
+//             atrributes: ['name', 'denomination', 'year', 'mintMark']
+//         }
+//     })
+//         .catch(err => {
+//             console.log(err);
+//             res.json(500).json(err)
+//         })
+// })
 
 //This route will be for adding a new coin to the collectio
 router.post('/api/ismypennyworthamillionpennies', (req, res) => {

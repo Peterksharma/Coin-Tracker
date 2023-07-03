@@ -19,7 +19,7 @@ router.get('/dashboard', (req, res) => {
     if (req.isAuthenticated()) {
         res.render('dashboard', { user: req.user }); 
     } else {
-        res.redirect('/login');
+        res.redirect('/');
     }
 });
 

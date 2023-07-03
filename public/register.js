@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
         if (response.ok) {
           alert('Registration successful!'); // or handle success in a different way
-          window.location.href = '/login'; // redirect to the login page after successful registration
+          window.location.href = '/'; // redirect to the home page after successful registration
         } else {
-          alert('Registration failed. Too poor?'); // or handle failure in a different way
+          alert('Registration failed. Password needs to be 8 char long.'); // or handle failure in a different way
         }
       } catch (error) {
         console.error(error);
