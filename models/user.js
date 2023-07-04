@@ -5,14 +5,14 @@ const bcrypt = require('bcrypt');
 class User extends Model { }
 
 User.init(
-  {
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   unique: true,
-    //   primaryKey: true,
-    //   autoIncrement: true,
-    // },
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true,
+        primaryKey: true,
+        autoIncrement: true,
+      },
 
     username: {
       type: DataTypes.STRING,
@@ -45,11 +45,6 @@ User.init(
     modelName: 'user',
   }
 );
-
-// User.hasMany(Model.Coin, {
-//   foreignKey: 'user_id',
-//   onDelete: 'CASCADE'
-// });
 
 module.exports = User;
 

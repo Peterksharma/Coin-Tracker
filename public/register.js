@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    console.log(`Username: ${username}`);
+    console.log(`Password: ${password}`);
 
     try {
       const response = await fetch('api/user/register', {
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-
+      console.log(`Response status: ${response.status}, statusText: ${response.statusText}`);
       if (response.ok) {
         // alert('Registration successful!'); // or handle success in a different way
         window.location.href = '/'; // redirect to the home page after successful registration
