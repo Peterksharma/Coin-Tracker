@@ -4,7 +4,6 @@ const router = express.Router();
 const { User } = require('../../models');
 const passport = require('passport');
 
-
 // Registration Route to Create Users
 router.post('/register', async (req, res) => {
     try {
@@ -22,7 +21,7 @@ router.post('/register', async (req, res) => {
             message = err.errors.map(e => e.message);
         }
         
-        // Sequelize unique constraint error
+        
         if (err.name === 'SequelizeUniqueConstraintError') {
             message = 'Username is already in use.';
         }
@@ -31,16 +30,6 @@ router.post('/register', async (req, res) => {
         res.status(500).json({ error: message });
     }
 });
-
-
-//Login Routes
-// router.post('/login', (req, res, next) => {
-//     passport.authenticate('local', {
-//         successRedirect: '/dashboard',
-//         failureRedirect: '/users/login',
-//         failureFlash: true
-//     })(req, res, next);
-// });
 
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
@@ -61,7 +50,5 @@ router.post('/login', (req, res, next) => {
         });
     })(req, res, next);
 });
-
-
 
 module.exports = router;
