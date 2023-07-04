@@ -259,3 +259,15 @@ for (let i = 0; i < usaPlaces.length; i++) {
     }
 }
 console.log(washBeautQuarter)
+
+module.exports = {
+    wheatPennies,
+    modernPennies,
+    buffNickles,
+    jeffNickles,
+    mercDimes,
+    rooseveltDimes,
+    washingtonQuarter,
+    stateQuarter,
+    washBeautQuarter
+  }  
