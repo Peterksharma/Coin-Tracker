@@ -5,12 +5,12 @@ const User = require('../../models/user');
 const passport = require('passport');
 
 
-//Registration Route to Create Users
+// Registration Route to Create Users
 router.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;
         await User.create({ username, password });
-        res.status(200).json({ message: 'User has been created.' });
+        res.status(200).json({ message: 'User has been created.' })
     } catch (err) {
         console.error(err);
         let message = 'User could not be registered.';
@@ -28,6 +28,7 @@ router.post('/register', async (req, res) => {
         res.status(500).json({ error: message });
     }
 });
+
 
 //Login Routes
 router.post('/login', (req, res, next) => {
