@@ -54,9 +54,9 @@ Coin.init(
 
 );
 
-Coin.belongsTo(Model.User, {
-    foreignKey: 'user_id'
-});
+// Coin.belongsTo(Model.User, {
+//     foreignKey: 'user_id'
+// });
 
 
 module.exports = Coin;

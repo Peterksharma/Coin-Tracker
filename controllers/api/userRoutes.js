@@ -10,12 +10,24 @@ router.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;
         await User.create({ username, password });
-        res.status(200).json({ message: 'User has been created.' })
+        res.status(200).json({ message: 'User has been created.' });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: 'User could not be registered.' })
+        let message = 'User could not be registered.';
+        
+        // Sequelize validation error
+        if (err.name === 'SequelizeValidationError') {
+            message = err.errors.map(e => e.message);
+        }
+        
+        // Sequelize unique constraint error
+        if (err.name === 'SequelizeUniqueConstraintError') {
+            message = 'Username is already in use.';
+        }
+        
+        res.status(500).json({ error: message });
     }
-})
+});
 
 //Login Routes
 router.post('/login', (req, res, next) => {
