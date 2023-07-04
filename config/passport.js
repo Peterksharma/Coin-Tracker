@@ -20,7 +20,7 @@ module.exports = function(passport) {
                     if (isMatch) {
                         return done(null, user);
                     } else {
-                        return done(null, flase, {message:'Not the correct password.'})
+                        return done(null, false, {message:'Not the correct password.'})
                     }
                 })
             })

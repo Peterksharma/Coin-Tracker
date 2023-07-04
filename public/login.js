@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 const errorData = await response.json();
                 console.error('Login failed:', errorData);
+                console.error('Error details:', JSON.stringify(errorData, null, 2));
                 alert('Login failed: ' + (errorData.message || ''));
             }
         } catch (error) {
-            console.error('Error:', error);
             alert('An error occurred during login: ' + error.message);
         }
     });
