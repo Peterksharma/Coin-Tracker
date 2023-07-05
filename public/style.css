@@ -1,3 +1,9 @@
+:root{
+--light: #ffc600;
+--dark: #000000;
+--secondary: #580fff;
+/* --primary: #e900ff" */
+}
 body {
     background-color: #f1f1f1;
   }
@@ -19,3 +25,13 @@ body {
   .login-form {
     margin-top: 50px;
   }
+  .custom-navbar {
+    background-color: var(--secondary);
+
+    .custom-navbar a:hover {
+      color: var(--light);
+      
+      .custom-btn:hover {
+        background-color: var(--primary)
+      }
+    }}
