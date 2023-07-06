@@ -1,6 +1,5 @@
 const express = require('express');
 const routes = require('./controllers');
-const passport = require('passport');
 const session = require('express-session');
 const { engine } = require('express-handlebars');
 const flash = require('connect-flash');
@@ -12,10 +11,7 @@ const app = express();
 const { User } = require('./models');
 const PORT = process.env.PORT || 3001;
 const coinRoutes = require('./controllers/api/coinCollectionRoutes')
-require('./config/passport')(passport)
-
-
-initializePassport(passport)
+const { passport, isAuthenticated } = require('./config/passport');
 
 //Loads the handlebars module
 //Sets handlebars configurations (we will go through them later on)

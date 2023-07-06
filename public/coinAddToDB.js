@@ -1,3 +1,14 @@
+let userId; //userId needs to be declared in the global scope
+
+fetch('/api/user/userdata')
+    .then(response => response.json())
+    .then(data => {
+        userId = data.id;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
 document.getElementById('coinAddBtn').addEventListener('click', function() {
     const denomination = document.getElementById('denomination').value;
     const name = document.getElementById('name').value;
@@ -12,10 +23,9 @@ document.getElementById('coinAddBtn').addEventListener('click', function() {
         denomination: denomination,
         year: year,
         mint: mint,
-
     };
 
-    // Send a POST request to the server
+    // Send a POST request to the server for adding a coin
     fetch('/api/coinCollectionRoutes', {
         method: 'POST',
         headers: {
@@ -37,6 +47,6 @@ document.getElementById('coinAddBtn').addEventListener('click', function() {
         }
     })
     .catch((error) => {
-        console.error('Error:', error);
+        console.error('I am an errror!', error);
     });
 });
