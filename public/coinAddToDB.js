@@ -1,4 +1,5 @@
 let userId; //userId needs to be declared in the global scope
+var notyf = new Notyf();
 
 fetch('/api/user/userdata')
     .then(response => response.json())
@@ -41,9 +42,11 @@ document.getElementById('coinAddBtn').addEventListener('click', function() {
     })
     .then(data => {
         if(data.error) {
-            alert(`Coin wasn't added because: ${data.error}`);
+            // alert(`Coin wasn't added because: ${data.error}`);
+            notyf.error('Coin was not added, something went awry.');
+
         } else {
-            alert('Coin added successfully');
+            notyf.success('Coin added was successfully.');
         }
     })
     .catch((error) => {
