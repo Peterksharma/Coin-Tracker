@@ -47,18 +47,3 @@ User.init(
 );
 
 module.exports = User;
-
-  //Primary key
-
-
-//needs to be dialed in
-
-
-
-
-
-
-// //Bcrytpt password hasing
-// bcrypt.hash(password, 10, function (err, hash) {
-//   // Store hashed password in your User model
-// });

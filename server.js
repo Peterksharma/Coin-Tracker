@@ -1,6 +1,5 @@
 const express = require('express');
 const routes = require('./controllers');
-const passport = require('passport');
 const session = require('express-session');
 const { engine } = require('express-handlebars');
 const flash = require('connect-flash');
@@ -11,10 +10,8 @@ const userRoutes = require('./controllers/api/userRoutes')
 const app = express();
 const { User } = require('./models');
 const PORT = process.env.PORT || 3001;
-require('./config/passport')(passport)
-
-
-initializePassport(passport)
+const coinRoutes = require('./controllers/api/coinCollectionRoutes')
+const { passport, isAuthenticated } = require('./config/passport');
 
 //Loads the handlebars module
 //Sets handlebars configurations (we will go through them later on)
@@ -41,11 +38,10 @@ app.use(passport.session());
 app.use('/api/user', userRoutes);
 app.use(routes)
 
-
-
+app.use('/api/coinCollectionRoutes', coinRoutes);
 
 // sync sequelize models to the database, then turn on the server
-// force false = true will drop the tables and then recreate them. Keep False
+// force false = true will drop the tables and then recreate them. Keep False unless you need to modify SQL
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`App is listen of the Port ${PORT}`));
 })

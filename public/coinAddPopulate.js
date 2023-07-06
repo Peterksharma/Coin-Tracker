@@ -42,7 +42,6 @@ const nameDropdown = document.getElementById('name');
 const yearDropdown = document.getElementById('year');
 const mintDropdown = document.getElementById('mint');
 
-// Function to populate options for a select element
 function populateOptions(selectElement, options) {
     selectElement.innerHTML = '';
     options.forEach(option => {
@@ -53,23 +52,20 @@ function populateOptions(selectElement, options) {
     });
 }
 
-// Handle denomination change
+//Poulates the Denomination then name then year, then mint mark.
 denominationDropdown.onchange = function() {
     populateOptions(nameDropdown, nameOptions[this.value]);
     nameDropdown.onchange();
 };
 
-// Handle name change
 nameDropdown.onchange = function() {
     populateOptions(yearDropdown, yearOptions[this.value]);
     yearDropdown.onchange();
 };
 
-// Handle year change
 yearDropdown.onchange = function() {
     populateOptions(mintDropdown, mintOptions);
 };
 
-// Initial population of denominations
 populateOptions(denominationDropdown, denominationOptions);
 denominationDropdown.onchange();

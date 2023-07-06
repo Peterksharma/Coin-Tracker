@@ -36,7 +36,7 @@ Coin.init(
             allowNull: false,
         },
 
-        mintmark: {
+        mint: {
             type: DataTypes.STRING,
             allowNull: true,
         },

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                window.location.href = '/dashboard'; // Redirect to dashboard or wherever you want, need to change once we get the page from Jennie
+                window.location.href = '/dashboard';
             } else {
                 const errorData = await response.json();
                 console.error('Login failed:', errorData);

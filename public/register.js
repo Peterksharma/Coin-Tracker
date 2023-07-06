@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       console.log(`Response status: ${response.status}, statusText: ${response.statusText}`);
       if (response.ok) {
-        // alert('Registration successful!'); // or handle success in a different way
         window.location.href = '/'; // redirect to the home page after successful registration
       } else {
         const data = await response.json();
