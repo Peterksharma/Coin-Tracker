@@ -46,4 +46,8 @@ User.init(
   }
 );
 
+User.hasMany(Model.Coin, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 module.exports = User;
