@@ -1,8 +1,22 @@
 <h1>Welcome back {{user.username}}!</h1>
 <h2>You have {{coinCount}} coins in your collection</h2>
 <div>
-<button>Add a coin to your collection</button>
+<select id="denomination">
+    <option value="">Please select a denomination...</option>
+</select>
+<select id="name">
+    <option value="">Please select a name...</option>
+</select>
+<select id="year">
+    <option value="">Please select a year...</option>
+</select>
+<select id="mint">
+    <option value="">Please select a mint...</option>
+</select>
+    <button id="coinAddBtn">Add a coin to your collection</button>
 </div>
 <div>
-<button>Look up a coin in your collection.</button>
+    <button id="coinLookUpBtn">Look up a coin in your collection.</button>
 </div>
+<script src="/coinAddPopulate.js"></script>
+<script src="/coinAddToDB.js"></script>
