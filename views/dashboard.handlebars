@@ -1,9 +1,26 @@
-<h1 "lead text-center" "fw-bold"> Welcome back {{user.username}}!</h1>
-<h2"lead text-center">You have {{coinCount}} coins in your collection</h2>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3.10.0/notyf.min.css">
+
+<h1>Welcome back {{user.username}}!</h1>
+<h2>You have {{coinCount}} coins in your collection</h2>
 <div>
-<button"btn btn-customcolor2">Add a coin to your collection</button>
+<select id="denomination">
+    <option value="">Please select a denomination...</option>
+</select>
+<select id="name">
+    <option value="">Please select a name...</option>
+</select>
+<select id="year">
+    <option value="">Please select a year...</option>
+</select>
+<select id="mint">
+    <option value="">Please select a mint...</option>
+</select>
+    <button id="coinAddBtn">Add a coin to your collection</button>
 </div>
-<div>
-<button class="btn btn-customcolor2">Look up a coin in your collection.</button>
-</div>
-{{!-- <h1>Welcome back {{user.username}} to Coin Tracker</h1> --}}
+{{!-- Coin lookup button. Commented out because dynamic rendering is done in the " you have X coins in your collection." --}}
+{{!-- <div>
+    <button id="coinLookUpBtn">Look up a coin in your collection.</button>
+</div> --}}
+<script src="https://cdn.jsdelivr.net/npm/notyf@3.10.0/notyf.min.js"></script>
+<script src="/coinAddPopulate.js"></script>
+<script src="/coinAddToDB.js"></script>
