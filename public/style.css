@@ -1,11 +1,14 @@
 body {
-    background-color: #f1f1f1;
+  /* background-image: url('background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: rgb(212, 212, 212);
+  font-family: 'PT Serif', serif;
   }
   
   .coin-images img {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
+    height: 150px;
+    margin: 20px;
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -19,3 +22,68 @@ body {
   .login-form {
     margin-top: 50px;
   }
+
+  h1, h2, h3, h4 {
+    font-family: 'PT Serif', serif;
+    text-align: center;
+  }
+
+  h1 {
+    color: white;
+    background-color: rgb(87, 86, 86);
+    font-size: 10vh;
+    /* text-shadow: 2px 2px; */
+    font-weight: bold;
+    padding: 2%
+  }
+
+#userName{
+  color: red
+}
+
+  .btn {
+    width: 300px;
+  }
+
+  .form-select {
+    width: 300px;
+  }
+
+  .userContainer {
+    display: flex;
+    padding: 1%;
+    justify-content: center;
+  }
+
+  .collectionContainer, .inputContainer {
+    padding: 1%;
+  }
+
+  h4 {
+    padding-top: 10%;
+    text-decoration: underline;
+  }
+
+  #coins-container {
+    text-align: center;
+  }
+
+  #username, #password, #email {
+    width: 300px;
+    height: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#regPgBtns {
+  display: flex;
+  justify-content: center;
+  /* gap: 10px; Optional: creates a gap between the elements */
+  flex-direction: column; /* Stacks the elements vertically */
+  align-items: center; /* Centers the elements horizontally */
+  text-align: center; /* Centers the text within the buttons */
+  width: 100%; /* Takes full width of the parent container */
+  padding-top: 2%;
+}
+

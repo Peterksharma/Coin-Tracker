@@ -27,7 +27,7 @@ document.getElementById('coinAddBtn').addEventListener('click', function() {
     };
 
     // Send a POST request to the server for adding a coin
-    fetch('/api/coinCollectionRoutes', {
+    fetch('/api/coin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

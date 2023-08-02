@@ -1,11 +1,29 @@
-<h1>Register</h1>
+{{!-- <h3>Register</h3>
 
 <form id="register-form">
-<input type="text" name="username" placeholder="User name" id='username'>
-<input type="email" name="email" placeholder="Email Address" id="email">
-<input type="password" name="password" placeholder="Password" id='password'>
+    <input type="text" name="username" placeholder="User name" id='username'>
+    <input type="email" name="email" placeholder="Email Address" id="email">
+    <input type="password" name="password" placeholder="Password" id='password'>
+    <div id="regPgBtns">
+        <a class="btn btn-primary" href="/">Login</a><br>
+        <button class="btn btn-secondary" type="submit">Register</button>
+    </div>
+</form>
+<script src="/register.js"></script> --}}
 
-<a href="/login">Login</a>
-<button type="submit">Register</button>
+<h4>Register</h4>
+
+<form id="register-form">
+    <input class="form-control" type="text" name="username" placeholder="Username" id='username'>
+    <input class="form-control" type="email" name="email" placeholder="Email Address" id="email">
+    <input class="form-control" type=" password" name="password" placeholder="Password" id='password'>
+    <div id="regPgBtns">
+        <div>
+            <a class="btn btn-primary" href="/">Login</a>
+        </div>
+        <div>
+            <button class="btn btn-secondary" type="submit">Register</button>
+        </div>
+    </div>
 </form>
 <script src="/register.js"></script>

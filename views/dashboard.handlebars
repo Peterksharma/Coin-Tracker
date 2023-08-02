@@ -1,26 +1,32 @@
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3.10.0/notyf.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3.10.0/notyf.min.css">
 
-<h1>Welcome back {{user.username}}!</h1>
-<h2>You have {{coinCount}} coins in your collection</h2>
-<div>
-<select id="denomination">
+<h2>Welcome back...</h2>
+<h2 id="userName">{{user.username}}!</h2>
+<h3>You have {{coinCount}} coins in your collection</h3>
+<div class="userContainer">
+<div class="inputContainer">
+<select id="denomination" class="form-select mb-3">
     <option value="">Please select a denomination...</option>
 </select>
-<select id="name">
+<select id="name" class="form-select mb-3">
     <option value="">Please select a name...</option>
 </select>
-<select id="year">
+<select id="year" class="form-select mb-3">
     <option value="">Please select a year...</option>
 </select>
-<select id="mint">
+<select id="mint" class="form-select mb-3">
     <option value="">Please select a mint...</option>
 </select>
-    <button id="coinAddBtn">Add a coin to your collection</button>
+    <button id="coinAddBtn" class="btn btn-info">Add a coin to your collection</button>
 </div>
-{{!-- Coin lookup button. Commented out because dynamic rendering is done in the " you have X coins in your collection." --}}
-{{!-- <div>
-    <button id="coinLookUpBtn">Look up a coin in your collection.</button>
-</div> --}}
+<div class="collectionContainer">
+    <button id="viewCollectionBtn" class="btn btn-dark">See Your Collection</button>
+    <h4>Your Collection:</h4>
+    <div id="coins-container"></div>
+</div>
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/notyf@3.10.0/notyf.min.js"></script>
 <script src="/coinAddPopulate.js"></script>
 <script src="/coinAddToDB.js"></script>
+<script src="/getAllCoins.js"></script>

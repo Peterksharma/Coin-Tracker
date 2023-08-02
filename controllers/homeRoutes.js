@@ -17,7 +17,6 @@ function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     } else {
-        // Redirects un-logged in users to the homepage
         res.redirect('/');
     }
 }
